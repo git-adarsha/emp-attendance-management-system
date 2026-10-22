@@ -30,7 +30,7 @@ function App() {
 
 const login = async (username, password) => {
   try {
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+    const response = await fetch("https://attendance-backend-api-ivrt.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -269,7 +269,7 @@ function MainApplication({
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/employees",
+        "https://attendance-backend-api-ivrt.onrender.com/api/employees",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -299,7 +299,7 @@ useEffect(() => {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/attendance",
+        "https://attendance-backend-api-ivrt.onrender.com/api/attendance",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -340,7 +340,7 @@ useEffect(() => {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/leaves",
+        "https://attendance-backend-api-ivrt.onrender.com/api/leaves",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -398,7 +398,7 @@ useEffect(() => {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      "http://localhost:5000/api/employees",
+      "https://attendance-backend-api-ivrt.onrender.com/api/employees",
       {
         method: "POST",
         headers: {
@@ -458,7 +458,7 @@ useEffect(() => {
     }
 
     const response = await fetch(
-      "http://localhost:5000/api/attendance",
+      "https://attendance-backend-api-ivrt.onrender.com/api/attendance",
       {
         method: "POST",
         headers: {
@@ -533,7 +533,7 @@ const applyLeave = async (data) => {
     }
 
     const response = await fetch(
-      "http://localhost:5000/api/leaves",
+      "https://attendance-backend-api-ivrt.onrender.com/api/leaves",
       {
         method: "POST",
         headers: {
@@ -601,7 +601,7 @@ const applyLeave = async (data) => {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/api/leaves/${id}/approve`,
+      `https://attendance-backend-api-ivrt.onrender.com/api/leaves/${id}/approve`,
       {
         method: "PUT",
         headers: {
@@ -654,7 +654,7 @@ const applyLeave = async (data) => {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/api/leaves/${id}/reject`,
+      `https://attendance-backend-api-ivrt.onrender.com/api/leaves/${id}/reject`,
       {
         method: "PUT",
         headers: {
