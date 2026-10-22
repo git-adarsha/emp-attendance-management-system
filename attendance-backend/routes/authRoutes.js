@@ -1,3 +1,4 @@
+\
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -29,6 +30,7 @@ router.post("/register", async (req, res) => {
       userId: user._id,
     });
   } catch (error) {
+    console.error("Register error:", error);
     res.status(500).json({ message: "Failed to register user" });
   }
 });
@@ -70,6 +72,7 @@ router.post("/login", async (req, res) => {
       },
     });
   } catch (error) {
+    console.error("Login error:", error);
     res.status(500).json({ message: "Login failed" });
   }
 });
