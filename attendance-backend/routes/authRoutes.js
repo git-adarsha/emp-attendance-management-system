@@ -5,12 +5,17 @@ const User = require("../models/User");
 
 const router = express.Router();
 
+
 router.post("/register", async (req, res) => {
   try {
     const { username, password, role, employeeId } = req.body;
-      username,
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await User.create({
+      username: username,
       password: hashedPassword,
-      role,
+      role: role,
       employeeId: employeeId || null,
     });
 
@@ -23,6 +28,7 @@ router.post("/register", async (req, res) => {
     res.status(500).json({ message: "Failed to register user" });
   }
 });
+
 
 router.post("/login", async (req, res) => {
   try {
@@ -43,7 +49,7 @@ router.post("/login", async (req, res) => {
     message: "Login successful",
     token,
     user: {
-      username: "employee1",
+      username: "employee",
       role: "employee",
       employeeId: "EMP001",
     },
